@@ -3,6 +3,23 @@
 > 服务端口：**9094** ｜ 技术栈与工程规范严格对齐 `mservice-fastapi-user` / `mservice-fastapi-metastorage`
 
 为 CaloPlan 提供图片文件存储：**JWT 鉴权上传**（防接口滥用），**公开 URL 访问**（随机 UUID 文件名即访问凭证）。存储层通过 `StorageProvider` 抽象，当前实现本地磁盘，未来可无缝替换为 COS / OSS / S3。
+## 相关项目（CaloPlan 全家桶）
+
+CaloPlan 全栈项目统一托管在 GitHub Organization [caloplan](https://github.com/caloplan)：
+
+| 类型 | 项目 | 与本项目关系 |
+| --- | --- | --- |
+| 前端 | [coloplan-v2](https://github.com/caloplan/coloplan-v2) | 客户端（图片上传链路） |
+| SDK | [caloplan-core](https://github.com/caloplan/caloplan-core) | 业务核心（兄弟模块） |
+| SDK | [caloplan-user](https://github.com/caloplan/caloplan-user) | 用户模块（兄弟模块） |
+| SDK | [caloplan-chat](https://github.com/caloplan/caloplan-chat) | AI 对话 SDK（图片识别链路） |
+| SDK | [caloplan-cache](https://github.com/caloplan/caloplan-cache) | 通用缓存（兄弟模块） |
+| 服务 | [fastapi-chat-service](https://github.com/caloplan/fastapi-chat-service) | AI 对话微服务（兄弟服务） |
+| 服务（本仓库） | [fastapi-file-service](https://github.com/caloplan/fastapi-file-service) | 图片文件存储微服务 |
+| 服务 | [mservice-fastapi-user](https://github.com/caloplan/mservice-fastapi-user) | 认证 / 用户微服务（JWT 签发方） |
+| 服务 | [mservice-fastapi-metastorage](https://github.com/caloplan/mservice-fastapi-metastorage) | 元数据微服务（兄弟服务） |
+
+本服务只校验 `mservice-fastapi-user` 签发的 JWT，不签发令牌；供 `coloplan-v2` 等前端上传图片使用。
 
 ## 技术栈
 
