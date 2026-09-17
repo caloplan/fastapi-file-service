@@ -3,6 +3,7 @@
 > 服务端口：**9094** ｜ 技术栈与工程规范严格对齐 `mservice-fastapi-user` / `mservice-fastapi-metastorage`
 
 为 CaloPlan 提供图片文件存储：**JWT 鉴权上传**（防接口滥用），**公开 URL 访问**（随机 UUID 文件名即访问凭证）。存储层通过 `StorageProvider` 抽象，当前实现本地磁盘，未来可无缝替换为 COS / OSS / S3。
+
 ## 相关项目（CaloPlan 全家桶）
 
 CaloPlan 全栈项目统一托管在 GitHub Organization [caloplan](https://github.com/caloplan)：
